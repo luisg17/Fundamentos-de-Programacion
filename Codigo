@@ -1,0 +1,48 @@
+/* FUNDAMENTOS DE PROGRAMACION 
+Programa en lenguaje C
+Elaborado por:
+Luis Gerardo Espino Sandoval 
+Vladimir García Limón
+Fecha: 20 de Diciembre de 2017 */
+
+#include <stdio.h>
+int main()
+{
+char nombre[20]; //Designa una variable para el nombre.
+int horas; //Variable entera.
+float tarifa, impuesto, salario_bruto, salario_neto; //Variables con decimales.
+	
+printf("Nombre: ");
+scanf("%s", &nombre);
+printf("Horas: ");
+scanf("%i", &horas);
+printf("Tarifa: ");
+scanf("%f", &tarifa);
+	
+//Se calcula el salario inicial del trabajador 		
+if (horas<=35){
+	salario_bruto = horas*tarifa;
+} 
+else {
+	salario_bruto = 35*tarifa+(horas-35)*15*tarifa; //
+}
+	//En esta parte se calculan los impuestos con el condicional if
+if (salario_bruto<=2000) {
+	impuesto = 0;
+  } else {
+		if ((salario_bruto>2000) && (salario_bruto<=2220)) {
+			impuesto = (salario_bruto-2000)*0.20;
+		} 
+		else {
+			impuesto = (220*0.20)+(salario_bruto-2220);
+		}
+	}
+	salario_neto = salario_bruto - impuesto; //Se calcula el Salario final de la persona
+	
+	//Se muestran los resultados despues de las operaciones
+printf("\nNombre: %s\n", nombre,"\n");
+printf("Salario bruto: %.2f\n", salario_bruto,"\n");
+printf("Impuestos: %.2f\n", impuesto,"\n");
+printf("Salario neto: %.2f\n", salario_neto,"\n");
+return 0;
+}
